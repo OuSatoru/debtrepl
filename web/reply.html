@@ -7,13 +7,29 @@
     <title>利率批复提交</title>
 </head>
 <body>
-    <form action="/" method="post" accept-charset="UTF-8" id="form1">
-        批复编号 <input type="text" name="pfbh">
-        <br>
+    <form action="/" method="post" accept-charset="UTF-8" id="form1" name="form1">
+        批复编号 <input type="text" name="pfbh" title="">
+        批复种类 <input type="text" name="pfzl" title="">
+        批复年份 <input type="text" name="pfnf" title=""> <br>
+        借款人&nbsp&nbsp&nbsp&nbsp <input type="text" name="jkr" title="">
+        证件号码 <input type="text" name="zjhm"  title=""/>
+        授信总额 <input type="text" name="sxze"  title=""/>
+        <br><br>
         综合授信<br>
-
-        <input type="text" name="age" title="">
+        抵押 <input type="text" name="diya" title=""> <br>
         <input type="submit" name="submit" value="提交" form="form1">
     </form>
+
+    <input type="button" onclick="submitAll()" value="全提交">
+<script>
+    function submitAll() {
+        var forms = document.forms;
+        for (var i = 0; i < forms.length; i++) {
+            console.log(forms.item(i));
+            forms.item(i).submit();
+        }
+    }
+
+</script>
 </body>
 </html>

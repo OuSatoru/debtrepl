@@ -22,7 +22,7 @@ func reply(w http.ResponseWriter, r *http.Request) {
 		} else {
 			r.ParseForm()
 			fmt.Println(r.Form)
-			fmt.Fprintf(w, "age: %v", r.Form["age"])
+			fmt.Fprintf(w, "age: %v", r.Form["pfbh"])
 		}
 	}
 }
