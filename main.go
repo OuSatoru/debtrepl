@@ -10,6 +10,7 @@ const replyPage = "web/reply.html"
 
 func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
+	http.HandleFunc("/api", api)
 	http.HandleFunc("/", reply)
 	http.ListenAndServe(":2333", nil)
 }
