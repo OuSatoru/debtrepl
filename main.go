@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
-	"html/template"
 	"fmt"
+	"html/template"
+	"net/http"
 )
 
 const replyPage = "web/reply.html"
