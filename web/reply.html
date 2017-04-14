@@ -4,23 +4,101 @@
     <meta charset="UTF-8">
     <script src="static/js/jquery-3.2.0.js"></script>
     <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/bootstrap-datepicker.js"></script>
+    <script src="static/js/bootstrap-datepicker.zh-CN.min.js"></script>
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
     <title>利率批复提交</title>
 </head>
 <body>
     <form action="/api" method="post" accept-charset="UTF-8" id="form1" name="form1">
-        批复编号 <input type="text" name="pfbh" title="">
-        批复种类 <input type="text" name="pfzl" title="">
-        批复年份 <input type="text" name="pfnf" title=""> <br>
-        借款人&nbsp&nbsp&nbsp&nbsp <input type="text" name="jkr" title="">
-        证件号码 <input type="text" name="zjhm"  title=""/>
-        授信总额 <input type="text" name="sxze"  title=""/>
+        <table>
+            <tr>
+                <td>批复编号 <input type="text" name="pfbh" title=""></td>
+                <td>批复种类 <input type="text" name="pfzl" title=""></td>
+                <td>批复年份 <input type="text" name="pfnf" title=""></td>
+            </tr>
+            <tr>
+                <td>借款人&nbsp&nbsp&nbsp&nbsp <input type="text" name="jkr" title=""></td>
+                <td>证件号码 <input type="text" name="zjhm"  title=""/></td>
+                <td>授信总额 <input type="text" name="sxze"  title=""/></td>
+            </tr>
+            <tr>
+                <td colspan="3">表头&nbsp&nbsp&nbsp&nbsp <input type="text" name="head"  title=""/></td>
+            </tr>
+        </table>
+        <!--批复编号 <input type="text" name="pfbh" title="">-->
+        <!--批复种类 <input type="text" name="pfzl" title="">-->
+        <!--批复年份 <input type="text" name="pfnf" title=""> <br>-->
+        <!--借款人&nbsp&nbsp&nbsp&nbsp <input type="text" name="jkr" title="">-->
+        <!--证件号码 <input type="text" name="zjhm"  title=""/>-->
+        <!--授信总额 <input type="text" name="sxze"  title=""/>-->
         <br><br>
-        综合授信<br>
-        抵押 <input type="text" name="diya" title=""> <br>
+        <div class="comprehensive">
+            <h4>综合授信</h4>
+            <table class="mortgage">
+                <tr><th>抵押</th></tr>
+                <tr>
+                    <td>授信日期 <input type="text" class="form-date" name="sxqsr" title=""></td>
+                    <td>到期日期 <input type="text" class="form-date" name="sxdqr" title=""></td>
+                    <td>期限&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="sxqx" title="" readonly></td>
+                </tr>
+                <tr>
+                    <td>贷款产品 <input type="text" name="dkcp" title=""></td>
+                    <td>贷款品种 <input type="text" name="dkpz" title=""></td>
+                    <td>担保金额 <input type="text" name="dbje" title=""></td>
+                </tr>
+            </table>
+            <table class="pledge">
+                <tr><th>质押</th></tr>
+                <tr>
+                    <td>授信日期 <input type="text" class="form-date" name="sxqsr" title=""></td>
+                    <td>到期日期 <input type="text" class="form-date" name="sxdqr" title=""></td>
+                    <td>期限&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="sxqx" title="" readonly></td>
+                </tr>
+                <tr>
+                    <td>贷款产品 <input type="text" name="dkcp" title=""></td>
+                    <td>贷款品种 <input type="text" name="dkpz" title=""></td>
+                    <td>担保金额 <input type="text" name="dbje" title=""></td>
+                </tr>
+            </table>
+            <table class="guarantee">
+                <tr><th>保证</th></tr>
+                <tr>
+                    <td>授信日期 <input type="text" class="form-date" name="sxqsr" title=""></td>
+                    <td>到期日期 <input type="text" class="form-date" name="sxdqr" title=""></td>
+                    <td>期限&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="sxqx" title="" readonly></td>
+                </tr>
+                <tr>
+                    <td>贷款产品 <input type="text" name="dkcp" title=""></td>
+                    <td>贷款品种 <input type="text" name="dkpz" title=""></td>
+                    <td>担保金额 <input type="text" name="dbje" title=""></td>
+                </tr>
+            </table>
+            <table class="credit">
+                <tr><th>信用</th></tr>
+                <tr>
+                    <td>授信日期 <input type="text" class="form-date" name="sxqsr" title=""></td>
+                    <td>到期日期 <input type="text" class="form-date" name="sxdqr" title=""></td>
+                    <td>期限&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="sxqx" title="" readonly></td>
+                </tr>
+                <tr>
+                    <td>贷款产品 <input type="text" name="dkcp" title=""></td>
+                    <td>贷款品种 <input type="text" name="dkpz" title=""></td>
+                    <td>担保金额 <input type="text" name="dbje" title=""></td>
+                </tr>
+            </table>
+        </div>
+
+        <!--综合授信<br>-->
+        <!--抵押 <input type="text" name="diya" title=""> <br>-->
         <input type="submit" name="submit" value="提交" form="form1">
     </form>
 
     <input type="button" onclick="submitAll()" value="全提交">
+    <script>
+        $(".form-date").datepicker({format: "yyyy-mm-dd", language: 'zh-CN'})
+    </script>
 <script>
     function submitAll() {
         var forms = document.forms;
@@ -29,7 +107,6 @@
             forms.item(i).submit();
         }
     }
-
 </script>
 </body>
 </html>
