@@ -37,16 +37,16 @@
         <div class="comprehensive">
             <h4>综合授信</h4>
             <table class="mortgage">
-                <tr><th>抵押</th></tr>
+                <tr><th>抵押 <button type="button" onclick="addMe()">增加一行</button></th></tr>
                 <tr>
                     <td>授信日期 <input type="text" class="form-date" name="c-m-sxqsr" title=""></td>
-                    <td>到期日期 <input type="text" class="form-date" name="c-m-sxdqr" title=""></td>
-                    <td>期限&emsp;&emsp; <input type="text" name="c-m-sxqx" title="" readonly></td>
+                    <td>到期日期&emsp;&emsp; <input type="text" class="form-date" name="c-m-sxdqr" title=""></td>
+                    <td>期限&emsp;&emsp;&emsp; <input type="text" name="c-m-sxqx" title="" readonly></td>
                 </tr>
                 <tr>
                     <td>贷款产品 <input type="text" name="c-m-dkcp" title=""></td>
-                    <td>贷款品种 <input type="text" name="c-m-dkpz" title=""></td>
-                    <td>担保金额 <input type="text" name="c-m-dbje" title=""></td>
+                    <td>贷款品种&emsp;&emsp; <input type="text" name="c-m-dkpz" title=""></td>
+                    <td>担保金额&emsp; <input type="text" name="c-m-dbje" title=""></td>
                 </tr>
                 <tr>
                     <td>抵押物&emsp; <input type="text" name="c-m-dyw" title=""></td>
@@ -57,8 +57,8 @@
                 </tr>
                 <tr>
                     <td>利率&emsp;&emsp; <input type="number" name="c-m-ll" title=""></td>
-                    <td>限制性条款 <input type="text" name="c-m-xzxtk" title=""></td>
-                    <td>风险提示 <input type="text" name="c-m-xzxtk" title=""></td>
+                    <td>限制性条款&emsp; <input type="text" name="c-m-xzxtk" title=""></td>
+                    <td>风险提示&emsp; <input type="text" name="c-m-xzxtk" title=""></td>
                 </tr>
             </table>
             <table class="pledge">
@@ -118,6 +118,11 @@
             console.log(forms.item(i));
             forms.item(i).submit();
         }
+    }
+    function addMe() {
+        var want = event.srcElement || event.target;
+        alert(want.parentNode)
+
     }
 </script>
 </body>
